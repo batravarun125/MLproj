@@ -98,7 +98,7 @@ import numpy as np
 def imshow(img):
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
-    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    # plt.imshow(np.transpose(npimg, (1, 2, 0)))
 
 
 # get some random training images
@@ -106,7 +106,7 @@ dataiter = iter(trainloader)
 images, labels = dataiter.next()
 
 # show images
-imshow(torchvision.utils.make_grid(images))
+# imshow(torchvision.utils.make_grid(images))
 # print labels
 print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
@@ -120,12 +120,25 @@ print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 import torch.nn as nn
 import torch.nn.functional as F
 
+import random
 
+
+def twoRandomNumbers(a, b):
+    list = []
+    for i in range(0,6):
+        test = random.random()  # random float 0.0 <= x < 1.0
+        if test < 0.5:
+            list.append(a)
+        else:
+            list.append(b)
+    return list
 
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
+        bias = twoRandomNumbers(0, 1)
+        self.conv1.bias = nn.Parameter(torch.FloatTensor(bias))
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16 * 5 * 5, 120)
@@ -152,19 +165,19 @@ def my_func(l1):
     temp_2h_minus_1 = torch.add(torch.abs(torch.add(temp,-1)),-1)
     ans = torch.mean(torch.pow(temp_2h_minus_1,2))
     return ans
-def weights_init(m):
-    classname = m.__class__.__name__
-    if classname.find('Conv1') != -1:
-        xavier(m.weight.data)
-        # xavier(m.bias.data)
+# def weights_init(m):
+#     classname = m.__class__.__name__
+#     if classname.find('Conv1') != -1:
+#         xavier(m.weight.data)
+#         # xavier(m.bias.data)
 
 c_1 = [0, 0.0001, 0.001, 0.01, 0.1 ,1]
-c_1 = [0, 0.001, 0.01, 0.1]
+c_1 = [0, 0.001, 0.1, 1]
 for c in c_1:
     net = Net()
-    conv1Params = list(net.conv1.parameters())
-    net.apply(init_weights)
-    ########################################################################
+    # conv1Params = list(net.conv1.parameters())
+    # net.apply(init_weights)
+    # ########################################################################
     # 3. Define a Loss function and optimizer
     # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     # Let's use a Classification Cross-Entropy loss and SGD with momentum.
@@ -182,8 +195,8 @@ for c in c_1:
 # We simply have to loop over our data iterator, and feed the inputs to the
 # network and optimize.
 
-    for epoch in range(5):  # loop over the dataset multiple times
-        a = torch.tensor([0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0.,0.,0.,0.])
+    for epoch in range(30):  # loop over the dataset multiple times
+        a = torch.tensor([0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0., 0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0.,0.,0.,0.])
         running_loss = 0.0
         j=0
         for i, data in enumerate(trainloader, 0):
@@ -196,10 +209,9 @@ for c in c_1:
 
             # forward + backward + optimize
             outputs, l1 = net(inputs)
-            a += torch.histc(l1, bins=23, min=-2, max=20)
             loss = criterion(outputs, labels)
             regularization_loss = c * my_func(l1)
-            # loss += regularization_loss
+            loss += regularization_loss
             loss.backward()
             optimizer.step()
 
@@ -255,6 +267,7 @@ for c in c_1:
     # Let us look at how the network performs on the whole dataset.
     a1 = torch.tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
     a2 = torch.tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+    a1 = torch.zeros([1, 230], dtype=torch.float)
     a2 = torch.zeros([1, 230], dtype=torch.float)
     correct = 0
     total = 0
@@ -262,7 +275,7 @@ for c in c_1:
         for data in testloader:
             images, labels = data
             outputs,loll = net(images)
-            a1  += torch.histc(loll, bins=23, min=-2, max=20)
+            a1 += torch.histc(loll, bins=230, min=-2, max=21)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
@@ -277,7 +290,7 @@ for c in c_1:
         for data in trainloader:
             images, labels = data
             outputs,loll = net(images)
-            a2  += torch.histc(loll, bins=230, min=-2, max=21)
+            a2 += torch.histc(loll, bins=230, min=-2, max=21)
 
             #plt.hist(x, normed=True, bins=30)
             # plt.ylabel('Train ')
