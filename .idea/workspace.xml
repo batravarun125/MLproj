@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3f4f5d4-f3d5-4e24-b123-f15ce4e21e40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/beginner_source/blitz/histo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py" afterDir="false" />
     </list>
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+            <state relative-caret-position="135">
+              <caret line="127" selection-start-line="127" selection-end-line="159" selection-end-column="15" />
               <folding>
                 <element signature="e#1781#1793#0" expanded="true" />
               </folding>
@@ -38,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///Library/Python/2.7/site-packages/torch/nn/modules/module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
+            <state relative-caret-position="7935">
               <caret line="536" selection-start-line="536" selection-end-line="536" />
             </state>
           </provider>
@@ -74,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///Library/Python/2.7/site-packages/torch/nn/functional.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3240">
+            <state relative-caret-position="9315">
               <caret line="634" column="4" selection-start-line="634" selection-start-column="4" selection-end-line="634" selection-end-column="4" />
             </state>
           </provider>
@@ -109,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="20" />
     <option name="y" value="43" />
     <option name="width" value="1400" />
@@ -251,27 +250,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py</url>
-          <line>178</line>
+          <line>181</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py</url>
-          <line>139</line>
+          <line>131</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py</url>
-          <line>133</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py</url>
-          <line>140</line>
+          <line>132</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py</url>
-          <line>141</line>
+          <line>133</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -280,6 +274,30 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/advanced_source/cpp_extension.rst">
       <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="127" selection-start-line="127" selection-end-line="159" selection-end-column="15" />
+          <folding>
+            <element signature="e#1781#1793#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beginner_source/blitz/histo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7935">
+          <caret line="536" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/torch/nn/modules/conv.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -304,32 +322,8 @@
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/torch/nn/functional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3240">
+        <state relative-caret-position="9315">
           <caret line="634" column="4" selection-start-line="634" selection-start-column="4" selection-end-line="634" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/torch/nn/modules/module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="536" selection-start-line="536" selection-end-line="536" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beginner_source/blitz/histo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beginner_source/blitz/cifar10_tutorial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
-          <folding>
-            <element signature="e#1781#1793#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

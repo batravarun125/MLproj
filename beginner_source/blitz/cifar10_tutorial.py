@@ -123,15 +123,7 @@ import torch.nn.functional as F
 import random
 
 
-def twoRandomNumbers(a, b):
-    list = []
-    for i in range(0,6):
-        test = random.random()  # random float 0.0 <= x < 1.0
-        if test < 0.5:
-            list.append(a)
-        else:
-            list.append(b)
-    return list
+
 
 class Net(nn.Module):
     def __init__(self):
@@ -152,9 +144,20 @@ class Net(nn.Module):
         x = self.pool(F.relu(self.conv2(x)))
         x = x.view(-1, 16 * 5 * 5)
         x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
+        x2 = F.relu(self.fc2(x))
+        x = x2
         x = self.fc3(x)
         return x,x1
+
+def twoRandomNumbers(a, b):
+    list = []
+    for i in range(0,6):
+        test = random.random()  # random float 0.0 <= x < 1.0
+        if test < 0.5:
+            list.append(a)
+        else:
+            list.append(b)
+    return list
 
 def my_func(l1):
     l2 = l1
@@ -163,7 +166,7 @@ def my_func(l1):
     temp2 = torch.mul(l1,2)
     temp = torch.mul(temp2,b)
     temp_2h_minus_1 = torch.add(torch.abs(torch.add(temp,-1)),-1)
-    ans = torch.mean(torch.pow(temp_2h_minus_1,2))
+    ans = torch.sum(torch.pow(temp_2h_minus_1,2))
     return ans
 # def weights_init(m):
 #     classname = m.__class__.__name__
@@ -172,7 +175,7 @@ def my_func(l1):
 #         # xavier(m.bias.data)
 
 c_1 = [0, 0.0001, 0.001, 0.01, 0.1 ,1]
-c_1 = [0, 0.001, 0.1, 1]
+c_1 = [0.001, 0.1, 1]
 for c in c_1:
     net = Net()
     # conv1Params = list(net.conv1.parameters())
@@ -195,7 +198,7 @@ for c in c_1:
 # We simply have to loop over our data iterator, and feed the inputs to the
 # network and optimize.
 
-    for epoch in range(30):  # loop over the dataset multiple times
+    for epoch in range(2):  # loop over the dataset multiple times
         a = torch.tensor([0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0., 0. ,0. ,0. ,0., 0.,0. ,0. ,0. ,0., 0.,0.,0.,0.])
         running_loss = 0.0
         j=0
