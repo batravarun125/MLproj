@@ -130,7 +130,7 @@ class Net(nn.Module):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
         bias = twoRandomNumbers(0, 1)
-        self.conv1.bias = nn.Parameter(torch.FloatTensor(bias))
+        #self.conv1.bias = nn.Parameter(torch.FloatTensor(bias))
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16 * 5 * 5, 120)
@@ -138,7 +138,7 @@ class Net(nn.Module):
         self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
-        x1 = F.relu(self.conv1(x))
+        x1 = torch.sigmoid(self.conv1(x))
         x = x1
         x = self.pool(x)
         x = self.pool(F.relu(self.conv2(x)))
@@ -174,8 +174,7 @@ def my_func(l1):
 #         xavier(m.weight.data)
 #         # xavier(m.bias.data)
 
-c_1 = [0, 0.0001, 0.001, 0.01, 0.1 ,1]
-c_1 = [0.001, 0.1, 1]
+c_1 = [0, 0.0001, 0.001, 0.01, 0.1 ]
 for c in c_1:
     net = Net()
     # conv1Params = list(net.conv1.parameters())
